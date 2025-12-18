@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Little Scrapbook</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #fff3f8;
+      color: #333;
+      margin: 0;
+      padding: 16px 10px 36px;
+      -webkit-tap-highlight-color: transparent;
+    }
+    h1 {
+      text-align: center;
+      color: #ff5fa2;
+      margin-bottom: 28px;
+      transform: rotate(-0.5deg);
+    }
+    .section {
+      position: relative;
+      background: #fff;
+      border-radius: 14px;
+      padding: 16px 14px 18px;
+      margin: 18px auto;
+      max-width: 620px;
+      box-shadow: 0 14px 28px rgba(0,0,0,0.08);
+      border: 2px dashed #ffd1e8;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 1.4rem; }
+      .section { margin: 14px 6px; }
+      .section:hover { box-shadow: 0 10px 22px rgba(0,0,0,0.08); }
+    }
+    /* make each card slightly off */
+    .section:nth-of-type(odd) { transform: rotate(-1.2deg) translateX(-4px); }
+    .section:nth-of-type(even) { transform: rotate(0.9deg) translateX(6px); }
+
+    /* fake tape */
+    .section::before,
+    .section::after {
+      content: "";
+      position: absolute;
+      width: 90px;
+      height: 22px;
+      background: rgba(255, 228, 240, 0.9);
+      top: -10px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+    }
+    .section::before {
+      left: 18px;
+      transform: rotate(-6deg);
+    }
+    .section::after {
+      right: 22px;
+      transform: rotate(5deg);
+    }
+
+    .section h2 {
+      color: #ff5fa2;
+      margin: 6px 0 10px;
+      transform: rotate(-0.4deg);
+    }
+    .memory {
+      margin-bottom: 12px;
+      padding-left: 12px;
+      border-left: 4px solid #ffb3d9;
+      line-height: 1.45;
+    }
+    .future {
+      font-style: italic;
+      opacity: 0.85;
+    }
+    footer {
+      text-align: center;
+      margin-top: 36px;
+      font-size: 14px;
+      color: #777;
+      transform: rotate(-0.6deg);
+    }
+  </style>
+
+  <script>
+    // Mobile-friendly interactions
+    document.addEventListener('DOMContentLoaded', () => {
+      const sections = document.querySelectorAll('.section');
+
+      // Tap to gently shuffle tilt (feels hand-made)
+      sections.forEach(sec => {
+        sec.addEventListener('click', () => {
+          const r = (Math.random() * 2 - 1).toFixed(2);
+          sec.style.transform = `rotate(${r}deg)`;
+        });
+      });
+
+      // Collapsible headers for small screens
+      if (window.innerWidth < 600) {
+        sections.forEach(sec => {
+          const h = sec.querySelector('h2');
+          const kids = Array.from(sec.children).filter(n => n !== h);
+          kids.forEach(k => k.style.display = 'none');
+          h.style.cursor = 'pointer';
+          h.insertAdjacentHTML('beforeend', ' <span style="opacity:.6">(tap)</span>');
+          h.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const open = kids[0].style.display !== 'none';
+            kids.forEach(k => k.style.display = open ? 'none' : 'block');
+          });
+        });
+      }
+    });
+  </script>
+</head>
+<body>
+  <h1>📸 Our Little Scrapbook</h1>
+
+  <div class="section">
+    <h2>💬 Tiny Moments I Love</h2>
+    <div class="memory">The way you still text me even when you're exhausted.</div>
+    <div class="memory">Those calls that start as "just 10 minutes" and somehow turn into hours.</div>
+    <div class="memory">How you make the distance feel less heavy without even trying.</div>
+  </div>
+
+  <div class="section">
+    <h2>😂 Inside Jokes (Badly Explained)</h2>
+    <div class="memory">That one dumb joke we both refuse to let die.</div>
+    <div class="memory">Us saying "just 5 minutes" and then losing track of time completely.</div>
+  </div>
+
+  <div class="section">
+    <h2>🗓️ Dates I Remember</h2>
+    <div class="memory">The day it hit me that this wasn’t just a phase for me.</div>
+    <div class="memory">The first time "goodnight" actually meant something.</div>
+  </div>
+
+  <div class="section">
+    <h2>🌱 Future Memories (Loading…)</h2>
+    <div class="memory future">That first hug where neither of us lets go.</div>
+    <div class="memory future">Late-night food runs where we argue about what to eat.</div>
+    <div class="memory future">Laughing about how hard long distance used to feel.</div>
+  </div>
+
+  <footer>
+    Made quietly, with a lot of love — even from far away.
+  </footer>
+</body>
+</html>
