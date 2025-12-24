@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christmas Love Letter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Imperial+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sacramento&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Imperial+Script&display=swap');
+
+        /* General styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #B30089,#CFBAE1, #F8C471); /* Christmas gradient: teal to warm gold */
+            display: flex;            
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Card/Letter styles */
+        .letter {
+            background: rgba(255, 250, 240, 0.95);
+            max-width: 400px;
+            width: 90%;
+            padding: 30px 25px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Rough edges effect */
+        .letter::before, .letter::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 5px dashed rgba(0,0,0,0.1);
+            top: 5px;
+            left: 5px;
+            pointer-events: none;
+            transform: rotate(1deg);
+        }
+
+        .letter::after {
+            transform: rotate(-1deg);
+        }
+
+        h1 {
+            font-family: 'Sacramento', cursive;
+            text-align: center;
+            color: #c0392b; /* festive red */
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-family: 'Imperial-script' ;
+            line-height: 1.6;
+            color: #2c3e50;
+            font-size: 10px;
+        }
+
+        .finish-line {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #e74c3c;
+            cursor: pointer;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+          /* Carousel */
+        .carousel-container {
+            max-width: 400px;
+            width: 90%;
+            overflow: hidden;
+            border-radius: 15px;
+            margin-bottom: 50px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-track img {
+            width: 100%;
+            flex-shrink: 0;
+        }
+
+        .carousel-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        .carousel-buttons button {
+            padding: 8px 12px;
+            background: #c0392b;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .carousel-buttons button:hover { background: #e74c3c; }
+
+        /* Snowflake animation */
+        .snowflake {
+            position: fixed;
+            top: -10px;
+            font-size: 1.2em;
+            color: white;
+            z-index: 9999;
+            pointer-events: none;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            to { transform: translateY(100vh); }
+        }
+
+        /* Mobile */
+        @media (max-width: 500px) {
+            .letter, .carousel-container {
+                width: 90%;
+            }
+            .carousel-buttons button {
+                padding: 6px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="letter">
+        <h1>Merry Christmas, My Yeobo!</h1>
+        <p>
+           <p style="color:#470063"> Dear Salomi,<br>
+It's been a while since i've written to you so i thought might as well 😋. First of all, i wanna wish you merry christmasss i hope Santa loves you as much as i do (i lied noone loves you more than me 😛). Since this is our first christmas "Together" (Fuck long distance istg) i wanted to do something special but then again im just a dumbass with an obsession so i cant do anything right now but that doesnt meannn every christmas will be like thattt from nowww 😝, next year ill still be a dumbass but ill be a dumbass whose over 18 iykyk 😏 so im even more excited for next year. But for now even through a screen, even through time zones and sleepless night just know you're always in my mind, whether it's when im sleeping, when im awake, when im passed out from whatever the fk i'd be doing, it's always you thats running on my mind and to be honest i quite like having you on my mind, it's like a thought that's easy to think about, something to take the edge off after a long day, someone i know i can just be myself around even if it's through a screen or a virtual letter. I thank you for that. I'm grateful for you loving me and giving me someone to love. I did try writing a poem for you and I'd be lying if I said I didnt just take 4 breaks in between while writing it. (I thought it was cringe 😭 ) <br>
+<br>
+I miss you in ways I cant even explain,<br>
+Like a mountain view, beside an open flame,<br>
+Through seconds that linger a little too long,<br>
+In every poem, every thought and every cranberries song,<br>
+<br>
+Distance acts tough, like it’s winning this fight,<br>
+But it weakens whenever I picture you close at night,<br>
+I have thoughts of you I cant think with a straight face,<br>
+And i have thoughts of you that make you my safe place,<br>
+<br>
+So when miles give up and excuses run dry,<br>
+When “someday” turns real and we stop saying goodbye,<br>
+When cities become our playgrounds and we return to kids,<br>
+I promise to stay through every uphill battle and midlife crisis.<br>
+<br>
+
+                                                                                          With love,<br>
+                                                                                          Pratyush.💐
+        </p>
+    
+</p>
+</div>
+
+    <script>
+        // Falling snow
+        function createSnowflake() {
+            const snowflake = document.createElement('div');
+            snowflake.classList.add('snowflake');
+            snowflake.style.left = Math.random() * window.innerWidth + 'px';
+            snowflake.style.animationDuration = 3 + Math.random() * 5 + 's';
+            snowflake.style.opacity = Math.random();
+            snowflake.textContent = '❄';
+            document.body.appendChild(snowflake);
+
+            setTimeout(() => snowflake.remove(), 8000);
+        }
+        setInterval(createSnowflake, 200);
+</script>
+</body>
+</html>
