@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rose</title>
+
+<style>
+   body {
+    margin: 0;
+    height: 100vh;
+    background:
+      radial-gradient(circle at center, #1a0b12 0%, #050003 60%, #000 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Responsive container */
+  .rose-container {
+    width: min(90vw, 380px);
+    height: auto;
+  }
+
+  svg {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+</style>
+</head>
+<body>
+
+<div class="rose-container">
+<svg viewBox="0 0 200 420" aria-label="Rose illustration">
+
+  <!-- ===== DEFINITIONS ===== -->
+  <defs>
+    <radialGradient id="petalGrad" cx="45%" cy="25%">
+      <stop offset="0%" stop-color="#ff8fa3"/>
+      <stop offset="60%" stop-color="#d11f3f"/>
+      <stop offset="100%" stop-color="#9b0f2e"/>
+    </radialGradient>
+
+    <radialGradient id="innerPetalGrad" cx="50%" cy="30%">
+      <stop offset="0%" stop-color="#ff9fb1"/>
+      <stop offset="100%" stop-color="#b01734"/>
+    </radialGradient>
+
+    <linearGradient id="stemGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#5fcf87"/>
+      <stop offset="100%" stop-color="#2f7f4a"/>
+    </linearGradient>
+
+    <linearGradient id="leafGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6fe3a2"/>
+      <stop offset="100%" stop-color="#3a9b62"/>
+    </linearGradient>
+  </defs>
+
+  <!-- ===== STEM ===== -->
+  <path d="M100 145
+           C92 210, 112 280, 100 370"
+        stroke="url(#stemGrad)"
+        stroke-width="10"
+        stroke-linecap="round"
+        fill="none" />
+
+  <!-- ===== THORNS ===== -->
+  <polygon points="92,205 82,215 95,218" fill="#2f7f4a"/>
+  <polygon points="108,235 118,245 105,248" fill="#2f7f4a"/>
+  <polygon points="90,275 80,285 93,288" fill="#2f7f4a"/>
+  <polygon points="110,310 120,320 107,323" fill="#2f7f4a"/>
+
+  <!-- ===== LEAVES ===== -->
+  <path d="M100 240
+           C35 225, 45 295, 100 315
+           C92 285, 92 260, 100 240 Z"
+        fill="url(#leafGrad)" />
+  <path d="M100 240 C70 270, 70 295, 100 315"
+        stroke="#2f7f4a"
+        stroke-width="2"
+        fill="none" />
+
+  <path d="M100 280
+           C165 265, 155 335, 100 355
+           C108 325, 108 300, 100 280 Z"
+        fill="url(#leafGrad)" />
+  <path d="M100 280 C130 310, 130 335, 100 355"
+        stroke="#2f7f4a"
+        stroke-width="2"
+        fill="none" />
+
+  <!-- ===== FLOWER ===== -->
+  <g transform="translate(0,-6)">
+    <ellipse cx="100" cy="90" rx="32" ry="64" transform="rotate(0 100 90)" fill="url(#petalGrad)" />
+    <ellipse cx="100" cy="90" rx="32" ry="64" transform="rotate(45 100 90)" fill="url(#petalGrad)" />
+    <ellipse cx="100" cy="90" rx="32" ry="64" transform="rotate(90 100 90)" fill="url(#petalGrad)" />
+    <ellipse cx="100" cy="90" rx="32" ry="64" transform="rotate(135 100 90)" fill="url(#petalGrad)" />
+
+    <ellipse cx="100" cy="90" rx="23" ry="46" transform="rotate(25 100 90)" fill="url(#innerPetalGrad)" />
+    <ellipse cx="100" cy="90" rx="23" ry="46" transform="rotate(115 100 90)" fill="url(#innerPetalGrad)" />
+
+    <circle cx="100" cy="90" r="17" fill="#7d0f29"/>
+  </g>
+
+</svg>
+</div>
+
+</body>
+</html>
